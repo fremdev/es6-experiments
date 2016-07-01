@@ -10,4 +10,4 @@ of the variable in future:
 */
 const CONST_EXAMPLE = 'You can\'t change this';
 
-export { varCanChange, CONST_EXAMPLE }
+export { varCanChange, CONST_EXAMPLE };

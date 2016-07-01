@@ -1,4 +1,4 @@
-var testSpread = function() {
+const testSpread = function() {
   /*
   We have an array with programming languages names
   */
@@ -7,19 +7,27 @@ var testSpread = function() {
   For adding languages names from first array to another array
   we can use ES6 spread operator(...)
   */
-  let languages = [...someLanguages, 'C++', 'PHP', 'Ruby'];
+  const languages = [...someLanguages, 'C++', 'PHP', 'Ruby'];
+  showLanguages(languages);
 
-  let currentNum = 1;
-  languages.forEach(function(language) {
-    console.log(`${currentNum} ${language}`);
-    currentNum++;
-  });
+  /**
+  * Show languages from languages list to console
+  * @param {Array} languagesList - array with languages names
+  */
+  function showLanguages(languagesList) {
+    let currentNum = 1;
+    console.log('Your programming languages list:');
+    languagesList.forEach(function(language) {
+      console.log(`${currentNum} ${language}`);
+      currentNum++;
+    });
+  }
 
   /*
   Another way to use spread operator is
   to pass elements of an array as an arguments:
   */
-  const settings = [2, 10, false];
+  const settings = [2, 10, true];
   showNumbers(...settings);
 
   /**
@@ -29,15 +37,17 @@ var testSpread = function() {
   * @param {Boolean} oddOnly - if true, show only odd numbers from range
   */
   function showNumbers(min, max, oddOnly) {
-    let startNum = min, step = 1;
-    if(oddOnly) {
+    let startNum = min;
+    let step = 1;
+    if (oddOnly) {
       startNum = (min % 2 === 0) ? (min + 1) : min;
       step = 2;
     }
-    for(let i = startNum; i <= max; i += step) {
+    console.log(`There are numbers from ${min} to ${max}, oddOnly: ${oddOnly}:`);
+    for (let i = startNum; i <= max; i += step) {
       console.log(i);
     }
   }
-}
+};
 
 export default testSpread
